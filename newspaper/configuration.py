@@ -12,6 +12,8 @@ __copyright__ = 'Copyright 2014, Lucas Ou-Yang'
 
 import logging
 
+from fake_useragent import UserAgent
+
 from .parsers import Parser
 from .text import (StopWords, StopWordsArabic, StopWordsChinese,
                    StopWordsKorean, StopWordsHindi, StopWordsJapanese)
@@ -63,7 +65,7 @@ class Configuration(object):
         # Unique stopword classes for oriental languages, don't toggle
         self.stopwords_class = StopWords
 
-        self.browser_user_agent = 'newspaper/%s' % __version__
+        self.browser_user_agent = UserAgent().chrome  # 'newspaper/%s' % __version__
         self.headers = {}
         self.request_timeout = 7
         self.proxies = {}
