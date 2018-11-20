@@ -89,7 +89,7 @@ class Parser(object):
         """`decode` is needed at the end because `etree.tostring`
         returns a python bytestring
         """
-        return lxml.etree.tostring(node, method='html').decode()
+        return lxml.etree.tostring(node, method='html', encoding="utf-8").decode()
 
     @classmethod
     def replaceTag(cls, node, tag):
